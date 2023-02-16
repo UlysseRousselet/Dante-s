@@ -21,6 +21,12 @@
     #include <math.h>
     #include <time.h>
 
+typedef struct maze_t {
+    int len_x;
+    int len_y;
+    int path_found;
+} maze_t;
+
 int my_printf(const char *format, ...);
 int my_show_word_array(char * const *tab);
 void my_putchar(char c);
@@ -93,5 +99,13 @@ void go_up(char **maze, int x, int y);
 void go_left(char **maze, int x, int y);
 void connect_begin_end(char **maze, int x, int y);
 void make_it_unperfect(char **argv, char **maze, int x,int y);
+void delete_return_of_line(char *line);
+char **file_into_2d_array(char *filepath);
+int solve_right(char **maze, int x, int y, maze_t *m);
+int solve_down(char **maze, int x, int y, maze_t *m);
+int solve_up(char **maze, int x, int y, maze_t *m);
+int solve_left(char **maze, int x, int y, maze_t *m);
+void get_only_true_path2(char **maze, int x, int y);
+void get_only_true_path(char **maze, maze_t *m);
 
 #endif

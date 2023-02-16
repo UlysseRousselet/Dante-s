@@ -7,7 +7,9 @@
 
 CC	=	gcc
 
-SRC	=	../src/maze_fct.c		\
+SRC	=	../src/maze_fct.c				\
+		../src/maze_solve_fct.c			\
+		../src/maze_solve_fct2.c		\
 		solver.c
 
 OBJ     = 	$(SRC:.c=.o)
