@@ -59,9 +59,15 @@ int main(int argc, char **argv)
     maze_t.len_x = my_strlen(maze[0]) - 1;
     maze_t.len_y = my_len_of_array(maze) - 1;
     maze_t.path_found = 0;
-    solve_maze(maze, 0, 0, &maze_t);
-    get_only_true_path(maze, &maze_t);
-    my_show_maze(maze, my_strlen(maze[0]));
+    int is_possible = 0;
+    if (maze[0][0] != 'X')
+        is_possible = solve_maze(maze, 0, 0, &maze_t);
+    if (is_possible == 1) {
+        get_only_true_path(maze, &maze_t);
+        my_show_maze(maze, my_strlen(maze[0]));
+    } else {
+        my_printf("no solution found\n");
+    }
     free_array(maze, my_len_of_array(maze));
     return 0;
 }
